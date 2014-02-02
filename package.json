@@ -34,7 +34,8 @@
     "githubot": "*", 
     "underscore": "*", 
     "underscore.string": "*", 
-    "jsdom": "*"
+    "jsdom": "*", 
+    "moment": "*"
   },
 
   "engines": {
