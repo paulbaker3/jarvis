@@ -1,6 +1,7 @@
 [
   "redis-brain.coffee",
   "shipit.coffee",
+  "tweet-content.coffee",
   "tweeter.coffee",
   "tweet.coffee",
   "abstract.coffee",
