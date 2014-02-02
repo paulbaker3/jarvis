@@ -36,7 +36,8 @@
     "underscore.string": "*", 
     "jsdom": "*", 
     "moment": "*", 
-    "aws2js": "*"
+    "aws2js": "*", 
+    "date-utils": "*"
   },
 
   "engines": {
