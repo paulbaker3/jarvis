@@ -30,7 +30,8 @@
     "hubot-hipchat": "2.5.1-4",
     "optparse": "1.0.4", 
     "ntwitter": "*", 
-    "twit": "*"
+    "twit": "*", 
+    "githubot": "*"
   },
 
   "engines": {
