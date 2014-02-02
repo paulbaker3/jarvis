@@ -48,9 +48,7 @@
     "htmlparser": "1.7.6", 
     "clark": "0.0.6", 
     "redis": "0.8.4", 
-    "validator" : "0.4.20", 
-    "wolfram": "0.2.2", 
-    "libxmljs_module": "*"
+    "validator" : "0.4.20"
   },
 
   "engines": {
