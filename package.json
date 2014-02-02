@@ -35,7 +35,8 @@
     "underscore": "*", 
     "underscore.string": "*", 
     "jsdom": "*", 
-    "moment": "*"
+    "moment": "*", 
+    "aws2js": "*"
   },
 
   "engines": {
