@@ -33,7 +33,8 @@
     "twit": "*", 
     "githubot": "*", 
     "underscore": "*", 
-    "underscore.string": "*"
+    "underscore.string": "*", 
+    "jsdom": "*"
   },
 
   "engines": {
