@@ -37,7 +37,8 @@
     "jsdom": "*", 
     "moment": "*", 
     "aws2js": "*", 
-    "date-utils": "*"
+    "date-utils": "*", 
+    "nodepie": "*"
   },
 
   "engines": {
