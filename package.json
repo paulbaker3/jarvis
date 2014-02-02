@@ -31,7 +31,8 @@
     "optparse": "1.0.4", 
     "ntwitter": "*", 
     "twit": "*", 
-    "githubot": "*"
+    "githubot": "*", 
+    "underscore": "*"
   },
 
   "engines": {
