@@ -14,13 +14,9 @@
 #   paulbaker3
 
 laugh_track = [
-  "lolz",
-  "lol",
   "hahaha",
   "tooo funny!",
   "I don't get it guys", 
-  "LMAO",
-  "ROFL",
   ":)",
   "Good times... good times"
 ]
