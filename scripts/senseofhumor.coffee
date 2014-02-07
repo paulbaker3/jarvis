@@ -18,7 +18,10 @@ laugh_track = [
   "tooo funny!",
   "I don't get it guys", 
   ":)",
-  "Good times... good times"
+  "Good times... good times", 
+  "http://www.meme-rage-comics.com/images/comics/like_a_sir_lql.jpg", 
+  "http://cf.chucklesnetwork.agj.co/items/1/1/1/4/6/not-sure-if-actually-laughing-or-just-typing-lol.jpg",
+  "http://memecrunch.com/meme/7YSB/don-t-know-if-you-re-laughing-with-me/image.png"
 ]
 
 module.exports = (robot) ->
