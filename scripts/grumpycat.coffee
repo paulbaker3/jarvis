@@ -40,13 +40,13 @@ cats = [
 ]
 
 module.exports = (robot) ->
-  robot.respond /grumpycat me/i, (msg) ->
+  robot.respond /grump(y)?cat me/i, (msg) ->
     msg.send cats[Math.floor(Math.random()*cats.length)]
 
-  robot.respond /grumpycat bomb( (\d+))?/i, (msg) ->
+  robot.respond /grump(y)?cat bomb( (\d+))?/i, (msg) ->
     count = msg.match[2] || 5
     for i in [1..count] by 1
       msg.send cats[Math.floor(Math.random()*cats.length)]
 
-  robot.respond /how many grumpycats are there/i, (msg) ->
+  robot.respond /how many grump(y)?cats are there/i, (msg) ->
     msg.send "There are #{cats.length} grumpycats."
