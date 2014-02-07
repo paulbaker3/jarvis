@@ -23,7 +23,7 @@ laugh_track = [
 
 module.exports = (robot) ->
 
-  regex = /(lol|rolf|lmao|lolz)?/i
+  regex = /(lol|rolf|lmao|lolz)/i
 
   robot.hear regex, (msg) ->
     msg.send msg.random laugh_track
