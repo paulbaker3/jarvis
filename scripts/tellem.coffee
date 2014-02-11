@@ -20,6 +20,6 @@ whats_up = [
 ]
 
 module.exports = (robot) ->
-    robot.hear /(tell (th)?em( what's up))/i, (msg) ->
+    robot.hear /(tell them)/i, (msg) ->
         whatup = msg.random whats_up 
         msg.send whatup.replace "%", msg.message.user.name
