@@ -7,6 +7,7 @@
 # Configuration:
 #
 # Commands:
+#   hubot tell them what's up
 #
 # Notes:
 #
