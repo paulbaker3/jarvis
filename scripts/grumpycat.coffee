@@ -62,10 +62,10 @@ cats = [
 ]
 
 module.exports = (robot) ->
-  robot.respond /grump(y)?cat me/i, (msg) ->
+  robot.respond /(grump(y|y\s)?cat/i, (msg) ->
     msg.send cats[Math.floor(Math.random()*cats.length)]
 
-  robot.respond /grump(y)?cat bomb( (\d+))?/i, (msg) ->
+  robot.respond /grump(y|y\s)?cat bomb( (\d+))?/i, (msg) ->
     count = msg.match[2] || 5
     for i in [1..count] by 1
       msg.send cats[Math.floor(Math.random()*cats.length)]
