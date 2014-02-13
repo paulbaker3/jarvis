@@ -62,7 +62,7 @@ cats = [
 ]
 
 module.exports = (robot) ->
-  robot.respond /(grump(y|y\s)?cat/i, (msg) ->
+  robot.respond /grump(y|y\s)?cat/i, (msg) ->
     msg.send cats[Math.floor(Math.random()*cats.length)]
 
   robot.respond /grump(y|y\s)?cat bomb( (\d+))?/i, (msg) ->
