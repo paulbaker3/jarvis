@@ -26,9 +26,9 @@ laugh_track = [
   "http://cuteoverload.files.wordpress.com/2009/08/ground_squirrel_560.jpg"
 ]
 
-module.exports = (robot) ->
+#module.exports = (robot) ->
 
-  regex = /(lol|rolf|rofl|lmao|lolz)/i
+  #regex = /(lol|rolf|rofl|lmao|lolz)/i
 
-  robot.hear regex, (msg) ->
-    msg.send msg.random laugh_track
+  #robot.hear regex, (msg) ->
+    #msg.send msg.random laugh_track
