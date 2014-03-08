@@ -22,7 +22,7 @@ pictures = [
 
 module.exports = (robot) ->
 
-  regex = /stay down/i
+  regex = /stay.*down/i
 
   robot.hear regex, (msg) ->
     msg.send msg.random pictures
