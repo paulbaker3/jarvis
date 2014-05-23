@@ -8,7 +8,8 @@
 
 Util = require "util"
 
-who_am_i = (msg) -> 
+who_am_i = (robot, msg) -> 
+  console.log "inside who_am_i"
   user = robot.brain.userForName(msg.message.user.id)
   msg.send Util.inspect(user, false, 4)
 
@@ -27,7 +28,7 @@ module.exports = (robot) ->
     msg.send "After state: #{Util.inspect(user, false, 4)}"
 
   robot.respond /who am i/i, (msg) -> 
-    who_am_i(msg)
+    who_am_i(robot, msg)
     console.log "Fired who_am_i"
 
 
