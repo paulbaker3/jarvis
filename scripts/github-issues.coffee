@@ -71,7 +71,7 @@ filter_issues = (issues, {limit, query}) ->
 # information and/or environment variables.
 complete_assignee = (msg, name) ->
   usernames = [{'Joey Ferguson': 'fergmastaflex'}]
-  if name is "my"
+  if name.replace(" ","") is "my"
     for k,v in usernames
       if msg.message.user.name is k
         name = v
