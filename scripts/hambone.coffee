@@ -9,7 +9,7 @@
 # Configuration:
 #
 # Commands:
-#   stay down - Display a picture of ensuing pain
+#   hambone OR hamboning - It's time to hambone!
 #
 # Author:
 #   pbaker

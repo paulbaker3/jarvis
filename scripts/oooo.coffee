@@ -9,7 +9,7 @@
 # Configuration:
 #
 # Commands:
-#   stay down - Display a picture of ensuing pain
+#   ooo (at least three times) - You got served
 #
 # Author:
 #   pbaker
