@@ -70,19 +70,18 @@ filter_issues = (issues, {limit, query}) ->
 # Resolve assignee name to a potential GitHub username using sender
 # information and/or environment variables.
 complete_assignee = (msg, name) ->
-  usernames = {
-    'Joey Ferguson': 'fergmastaflex'
-  }
-  if name.replace(" ","") is "my"
-    for k,v of usernames
-      console.log 'k is equal to: ', k
-      if msg.message.user.name is k
-        name = v
+  # usernames = {
+  #   'Joey Ferguson': 'fergmastaflex'
+  # }
+  # if name.replace(" ","") is "my"
+  #   for k,v of usernames
+  #     if msg.message.user.name is k
+  #       name = v
   name = name.replace("@", "")
   # Try resolving the name to a GitHub username using full, then first name:
   resolve = (n) -> process.env["HUBOT_GITHUB_USER_#{n.replace(/\s/g, '_').toUpperCase()}"]
   resolve(name) or resolve(name.split(' ')[0]) or name
-  msg.send name
+  # msg.send name
 
 module.exports = (robot) ->
   github = require("githubot")(robot)
