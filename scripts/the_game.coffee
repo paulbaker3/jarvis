@@ -37,7 +37,7 @@ class TheGame
 
   selfDeniedResponses: (name) ->
     @self_denied_responses = [
-      "Hey everyone! #{name} is a cheater!"
+      "Hey @all ! #{name} is a cheater!"
     ]
 
   get: (thing) ->
@@ -64,7 +64,7 @@ module.exports = (robot) ->
 
   robot.hear /pay\s(\S+[^+:\s])/, (msg) ->
     subject = msg.match[1].toLowerCase()
-    if msg.message.user.mention_name.toLowerCase() != subject
+    if msg.message.user.mention_name.toLowerCase() != subject.replace("@","")
       thegame.increment subject
       msg.send "#{subject} #{thegame.incrementResponse()} (Coins: #{thegame.get(subject)})"
     else
