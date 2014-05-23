@@ -10,8 +10,8 @@ module.exports = (robot) ->
   robot.respond /what'?s.*my.*name/i, (msg) ->
     inspect = Util.inspect(msg.message.user, false, 4)
     msg.send msg.message.user.name 
+    msg.send msg.message.user.mention_name 
     msg.send inspect
-    msg.send "foo"
 
   robot.respond /(set) (my) (mention_name to) (.+)/i, (msg) -> 
     user = robot.brain.userForName(msg.message.user.name )
