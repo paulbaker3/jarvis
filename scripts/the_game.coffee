@@ -64,7 +64,7 @@ module.exports = (robot) ->
 
   robot.hear /pay\s(\S+[^+:\s])/, (msg) ->
     subject = msg.match[1].toLowerCase()
-    if allow_self is true or msg.message.user.name.toLowerCase() != subject
+    if msg.message.user.mention_name.toLowerCase() != subject
       thegame.increment subject
       msg.send "#{subject} #{thegame.incrementResponse()} (Coins: #{thegame.get(subject)})"
     else
