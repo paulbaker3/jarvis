@@ -7,7 +7,7 @@ class TheGame
       "+10 coins!"
     ]
 
-    @decrement_responses = [
+    @punch_responses = [
       "-10 coins!"
     ]
 
@@ -15,25 +15,26 @@ class TheGame
       if @robot.brain.data.thegame
         @cache = @robot.brain.data.thegame
 
-  kill: (thing) ->
-    delete @cache[thing]
-    @robot.brain.data.thegame = @cache
-
   increment: (thing) ->
     @cache[thing] ?= 0
     @cache[thing] += 10
     @robot.brain.data.thegame = @cache
 
-  decrement: (thing) ->
+  punch: (thing) ->
     @cache[thing] ?= 0
-    @cache[thing] -= 10
+    @cache[thing] -= 30
+    @robot.brain.data.thegame = @cache
+
+  cost: (thing, cost) ->
+    @cache[thing] ?= 0
+    @cache[thing] -= cost
     @robot.brain.data.thegame = @cache
 
   incrementResponse: ->
      @increment_responses[Math.floor(Math.random() * @increment_responses.length)]
 
-  decrementResponse: ->
-     @decrement_responses[Math.floor(Math.random() * @decrement_responses.length)]
+  punchResponse: ->
+     @punch_responses[Math.floor(Math.random() * @punch_responses.length)]
 
   selfDeniedResponses: (name) ->
     @self_denied_responses = [
@@ -60,7 +61,6 @@ class TheGame
 
 module.exports = (robot) ->
   thegame = new TheGame robot
-  allow_self = "false"
 
   robot.hear /pay\s(\S+[^+:\s])/, (msg) ->
     subject = msg.match[1].toLowerCase()
@@ -86,3 +86,12 @@ module.exports = (robot) ->
     match = msg.match[1].toLowerCase()
     if match != "most" && match != "least"
       msg.send "\"#{match}\" has #{thegame.get(match)} coins."
+
+  robot.hear /punch\s(\S+[^+:\s])/, (msg) ->
+    subject = msg.match[1].toLowerCase()
+    sender = "@#{msg.message.user.mention_name}"
+    if thegame.get(sender) == 100
+      thegame.bankrupt subject
+      msg.send "#{subject} #{thegame.punchResponse()} (Coins: #{thegame.get(subject)})"
+    else
+      msg.send "You can't afford this, #{sender}!"
