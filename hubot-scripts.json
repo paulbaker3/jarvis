@@ -8,7 +8,6 @@
   "github-activity.coffee",
   "github-commit-link.coffee",
   "github-issue-link.coffee",
-  "github-issues.coffee",
   "github-merge.coffee",
   "github-pulls.coffee",
   "github-search.coffee",
