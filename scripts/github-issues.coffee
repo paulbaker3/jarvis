@@ -79,6 +79,7 @@ complete_assignee = (msg, name) ->
   # Try resolving the name to a GitHub username using full, then first name:
   resolve = (n) -> process.env["HUBOT_GITHUB_USER_#{n.replace(/\s/g, '_').toUpperCase()}"]
   resolve(name) or resolve(name.split(' ')[0]) or name
+  msg.send name
 
 module.exports = (robot) ->
   github = require("githubot")(robot)
