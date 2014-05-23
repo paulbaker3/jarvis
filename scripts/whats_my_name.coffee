@@ -13,6 +13,7 @@ module.exports = (robot) ->
     msg.send inspect
     msg.send "foo"
 
-  robot.respond /(set) (my) (@mention to) (.+)/i, (msg) -> 
-    at_mention = msg.match[4].trim()
-    msg.send at_mention
+  robot.respond /(set) (my) (mention_name to) (.+)/i, (msg) -> 
+    mention_mention = msg.match[4].trim()
+    msg.message.user.mention_name.push(mention_name)
+    msg.send "Setting mention_name to #{mention_mention}"
