@@ -7,7 +7,7 @@
 Util = require "util"
 
 module.exports = (robot) ->
-  robot.respond /what(')?s.*my.*sname/i, (msg) ->
+  robot.respond /what'?s.*my.*name/i, (msg) ->
     inspect = Util.inspect(msg.message.user, false, 4)
     msg.send msg.message.user.name 
     msg.send inspect
