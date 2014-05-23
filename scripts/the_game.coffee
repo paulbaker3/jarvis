@@ -90,7 +90,7 @@ module.exports = (robot) ->
   robot.hear /bankrupt\s(\S+[^+:\s])/, (msg) ->
     subject = msg.match[1].toLowerCase()
     sender = "@#{msg.message.user.mention_name}"
-    if thegame.get(sender) < 100
+    if thegame.get(sender) >= 100
       thegame.bankrupt subject
       msg.send "#{subject} #{thegame.punchResponse()} (Coins: #{thegame.get(subject)})"
     else
