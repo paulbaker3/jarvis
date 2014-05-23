@@ -72,7 +72,7 @@ filter_issues = (issues, {limit, query}) ->
 complete_assignee = (msg, name) ->
   usernames = [{'Joey Ferguson': 'fergmastaflex'}]
   if name.replace(" ","") is "my"
-    for k,v in usernames
+    for k,v of usernames
       console.log 'k is equal to: ', k
       if msg.message.user.name is k
         name = v
