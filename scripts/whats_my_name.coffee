@@ -6,6 +6,6 @@
 module.exports = (robot) ->
   robot.respond /(W|w)hat's\smy\sname/i, (msg) ->
     msg.send msg.message.user.name 
-    msg.send msg.message.user.mention_name
+    msg.send msg.message.user
     msg.send "foo"  
 
