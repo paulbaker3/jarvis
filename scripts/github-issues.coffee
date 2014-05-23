@@ -72,7 +72,9 @@ filter_issues = (issues, {limit, query}) ->
 complete_assignee = (msg, name) ->
   usernames = [{'Joey Ferguson': 'fergmastaflex'}]
   if name.replace(" ","") is "my"
+    msg.send 'name is my'
     for k,v in usernames
+      msg.send k + ' ' + v
       if msg.message.user.name is k
         name = v
   name = name.replace("@", "")
