@@ -90,6 +90,8 @@ module.exports = (robot) ->
   robot.hear /punch\s(\S+[^+:\s])/, (msg) ->
     subject = msg.match[1].toLowerCase()
     sender = "@#{msg.message.user.mention_name}"
-    thegame.increment subject
-    thegame.cost sender, 30
-    msg.send "#{subject} #{thegame.punchResponse()} (Coins: #{thegame.get(subject)})"
+    if thegame.get(sender) == 100
+      thegame.bankrupt subject
+      msg.send "#{subject} #{thegame.punchResponse()} (Coins: #{thegame.get(subject)})"
+    else
+      msg.send "You can't afford this, #{sender}!"
