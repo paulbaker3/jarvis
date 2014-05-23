@@ -27,7 +27,7 @@ module.exports = (robot) ->
     msg.send "After state: #{Util.inspect(user, false, 4)}"
 
   robot.respond /who am i/i, (msg) -> 
-    who_am_i
+    who_am_i(msg)
     console.log "Fired who_am_i"
 
 
