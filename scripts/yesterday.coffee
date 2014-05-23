@@ -36,39 +36,23 @@
 _  = require("underscore")
 _s = require("underscore.string")
 
-Number::seconds = ->
-  @ * 1000
-  
-Number::minutes = ->
-  @seconds() * 60
-  
-Number::minute = Number::minutes
-  
-Number::hours = ->
-  @minutes() * 60
-  
-Number::hour = Number::hours
- 
-Number::ago = ->
-  new Date(new Date().valueOf() - @)
-  
-Number::from_now = ->
-  new Date(new Date().valueOf() + @)
-
 ASK_REGEX = ///
   show\s            # Start's with 'show'
   (me)?\s*          # Optional 'me'
+  (\d+|\d+\sof)?\s* # 'N of' -- 'of' is optional but ambiguous unless assignee is named
   (\S+'s|my)?\s*    # Assignee's name or 'my'
   (\S+)?\s*         # Optional label name
-  yesterday\s*      # 'yesterday'
+  issues\s*         # 'issues'
+  (for\s\S+)?\s*    # Optional 'for <repo>'
   (about\s.+)?      # Optional 'about <query>'
 ///i
 
 # Given the text sent to robot.respond (e.g. 'hubot show me...'), parse the
 # criteria used for filtering issues.
 parse_criteria = (message) ->
-  [me, assignee, label, query] = message.match(ASK_REGEX)[1..]
+  [me, limit, assignee, label, repo, query] = message.match(ASK_REGEX)[1..]
   me: me,
+  limit: parseInt limit.replace(" of", "") if limit?,
   assignee: assignee.replace("'s", "") if assignee?,
   label: label,
   repo: repo.replace("for ", "") if repo?,
@@ -79,6 +63,8 @@ parse_criteria = (message) ->
 filter_issues = (issues, {limit, query}) ->
   if query?
     issues = _.filter issues, (i) -> _.any [i.body, i.title], (s) -> _s.include s.toLowerCase(), query.toLowerCase()
+  if limit?
+    issues = _.first issues, limit
   issues
 
 # Resolve assignee name to a potential GitHub username using sender
@@ -97,7 +83,7 @@ module.exports = (robot) ->
     criteria.repo = github.qualified_repo criteria.repo
     criteria.assignee = complete_assignee msg, criteria.assignee if criteria.assignee?
 
-    query_params = state: "open", sort: "created", since: 24.hour().ago()
+    query_params = state: "open", sort: "created"
     query_params.labels = criteria.label if criteria.label?
     query_params.assignee = criteria.assignee if criteria.assignee?
 
