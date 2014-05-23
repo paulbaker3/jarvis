@@ -3,9 +3,12 @@
 #
 # Commands:
 #   Hubot what's my name -> Responds with the hipchat username
+
+Util = require "util"
+
 module.exports = (robot) ->
   robot.respond /(W|w)hat's\smy\sname/i, (msg) ->
+    inspect = Util.inspect(msg.message.user, false, 4)
     msg.send msg.message.user.name 
-    msg.send msg.message.user
-    msg.send "foo"  
-
+    msg.send inspect
+    msg.send "foo"
