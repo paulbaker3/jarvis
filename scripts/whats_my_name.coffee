@@ -1,8 +1,8 @@
 # Description:
-#   Messing around with the YouTube API.
+#   Little script to see what Hubot thinks is your name
 #
 # Commands:
-#   hubot youtube me <query> - Searches YouTube for the query and returns the video embed link.
+#   Hubot what's my name -> Responds with the hipchat username
 module.exports = (robot) ->
   robot.respond /(W|w)hat's\smy\sname/i, (msg) ->
     msg.send msg.message.user.name    
