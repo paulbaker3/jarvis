@@ -24,7 +24,7 @@ pictures = [
 
 module.exports = (robot) ->
 
-  regex = /self*five/i
+  regex = /self.*five/i
 
   robot.hear regex, (msg) ->
     msg.send msg.random pictures
