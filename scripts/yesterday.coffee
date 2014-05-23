@@ -35,7 +35,25 @@
 
 _  = require("underscore")
 _s = require("underscore.string")
-date_time = require('./date_time')
+
+Number::seconds = ->
+  @ * 1000
+  
+Number::minutes = ->
+  @seconds() * 60
+  
+Number::minute = Number::minutes
+  
+Number::hours = ->
+  @minutes() * 60
+  
+Number::hour = Number::hours
+ 
+Number::ago = ->
+  new Date(new Date().valueOf() - @)
+  
+Number::from_now = ->
+  new Date(new Date().valueOf() + @)
 
 ASK_REGEX = ///
   show\s            # Start's with 'show'
@@ -79,7 +97,7 @@ module.exports = (robot) ->
     criteria.repo = github.qualified_repo criteria.repo
     criteria.assignee = complete_assignee msg, criteria.assignee if criteria.assignee?
 
-    query_params = state: "open", sort: "created", since: 1.hour().ago()
+    query_params = state: "open", sort: "created", since: 24.hour().ago()
     query_params.labels = criteria.label if criteria.label?
     query_params.assignee = criteria.assignee if criteria.assignee?
 
