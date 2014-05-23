@@ -14,8 +14,9 @@ module.exports = (robot) ->
     msg.send "foo"
 
   robot.respond /(set) (my) (mention_name to) (.+)/i, (msg) -> 
+    user = robot.brain.userForName(msg.message.user.name )
     mention_mention = msg.match[4].trim()
     msg.send "Before state: #{Util.inspect(msg.message.user, false, 4)}"
-    msg.message.user.mention_name = mention_name
+    user.mention_name = mention_name
     msg.send "Setting mention_name to #{mention_mention}"
-    msg.send "After state: #{Util.inspect(msg.message.user, false, 4)}"
+    msg.send "After state: #{Util.inspect(user, false, 4)}"
