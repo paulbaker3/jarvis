@@ -5,5 +5,6 @@
 #   Hubot what's my name -> Responds with the hipchat username
 module.exports = (robot) ->
   robot.respond /(W|w)hat's\smy\sname/i, (msg) ->
-    msg.send msg.message.user.name    
+    msg.send msg.message.user.name 
+    msg.send msg.message.user.mention_name  
 
