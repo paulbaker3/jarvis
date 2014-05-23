@@ -30,6 +30,9 @@
 # Author:
 #   davidsiegel
 
+
+
+
 _  = require("underscore")
 _s = require("underscore.string")
 
@@ -67,7 +70,11 @@ filter_issues = (issues, {limit, query}) ->
 # Resolve assignee name to a potential GitHub username using sender
 # information and/or environment variables.
 complete_assignee = (msg, name) ->
-  name = msg.message.user.name if name is "my"
+  if name is "my"
+    usernames = [{'Joey Ferguson': 'fergmastaflex'}]
+      for k,v in usernames
+        if msg.message.user.name is k
+          name = v
   name = name.replace("@", "")
   # Try resolving the name to a GitHub username using full, then first name:
   resolve = (n) -> process.env["HUBOT_GITHUB_USER_#{n.replace(/\s/g, '_').toUpperCase()}"]
