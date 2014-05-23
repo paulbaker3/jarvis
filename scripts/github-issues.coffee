@@ -63,8 +63,8 @@ parse_criteria = (message) ->
 filter_issues = (issues, {limit, query}) ->
   if query?
     issues = _.filter issues, (i) -> _.any [i.body, i.title], (s) -> _s.include s.toLowerCase(), query.toLowerCase()
-  if limit?
-    issues = _.first issues, limit
+  if assignee?
+    issues = _.filter issues, (i)
   issues
 
 # Resolve assignee name to a potential GitHub username using sender
