@@ -70,7 +70,9 @@ filter_issues = (issues, {limit, query}) ->
 # Resolve assignee name to a potential GitHub username using sender
 # information and/or environment variables.
 complete_assignee = (msg, name) ->
-  usernames = [{'Joey Ferguson': 'fergmastaflex'}]
+  usernames = {
+    'Joey Ferguson': 'fergmastaflex'
+  }
   if name.replace(" ","") is "my"
     for k,v of usernames
       console.log 'k is equal to: ', k
