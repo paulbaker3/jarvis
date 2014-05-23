@@ -8,7 +8,7 @@ class TheGame
     ]
 
     @punch_responses = [
-      "-10 coins!"
+      "Bankrupted!!"
     ]
 
     @robot.brain.on 'loaded', =>
@@ -20,9 +20,9 @@ class TheGame
     @cache[thing] += 10
     @robot.brain.data.thegame = @cache
 
-  punch: (thing) ->
+  bankrupt: (thing) ->
     @cache[thing] ?= 0
-    @cache[thing] -= 30
+    @cache[thing] = 0
     @robot.brain.data.thegame = @cache
 
   cost: (thing, cost) ->
@@ -33,8 +33,8 @@ class TheGame
   incrementResponse: ->
      @increment_responses[Math.floor(Math.random() * @increment_responses.length)]
 
-  punchResponse: ->
-     @punch_responses[Math.floor(Math.random() * @punch_responses.length)]
+  bankruptResponse: ->
+     @bankrupt_responses[Math.floor(Math.random() * @punch_responses.length)]
 
   selfDeniedResponses: (name) ->
     @self_denied_responses = [
@@ -87,7 +87,7 @@ module.exports = (robot) ->
     if match != "most" && match != "least"
       msg.send "\"#{match}\" has #{thegame.get(match)} coins."
 
-  robot.hear /punch\s(\S+[^+:\s])/, (msg) ->
+  robot.hear /bankrupt\s(\S+[^+:\s])/, (msg) ->
     subject = msg.match[1].toLowerCase()
     sender = "@#{msg.message.user.mention_name}"
     if thegame.get(sender) == 100
