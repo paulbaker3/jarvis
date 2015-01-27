@@ -1,58 +1,26 @@
 {
-  "name": "hosted-hubot",
-  "version": "2.7.1",
+  "name": "cortana",
+  "version": "0.0.0",
   "private": true,
-
-  "author": "GitHub Inc.",
-
-  "keywords": [
-    "github",
-    "hubot",
-    "campfire",
-    "bot"
-  ],
-
-  "description": "A simple helpful robot for your Company",
-
-  "licenses": [{
-    "type": "MIT",
-    "url": "https://github.com/github/hubot/raw/master/LICENSE"
-  }],
-
-  "repository" : {
-    "type": "git",
-    "url": "https://github.com/github/hubot.git"
-  },
-
+  "author": "paulbaker3 <paul.baker.3@gmail.com>",
+  "description": "A hubot instance for Capshare",
   "dependencies": {
-    "hubot":         ">= 2.6.0 < 3.0.0",
-    "hubot-scripts": ">= 2.5.0 < 3.0.0", 
-    "hubot-hipchat": "2.6.4-2",
-    "optparse": "1.0.4", 
-    "ntwitter": "*",
-    "twit": "*", 
-    "githubot": "*", 
-    "underscore": "*", 
-    "underscore.string": "*", 
-    "jsdom": "*", 
-    "moment": "*", 
-    "aws2js": "*", 
-    "date-utils": "*", 
-    "nodepie": "*", 
-    "cheerio": "*", 
-    "sandbox": "0.8.3", 
-    "xml2js": "0.2.0", 
-    "htmlparser": "1.7.6",
-    "soupselect": "0.2.0", 
-    "handlebars": "1.0.5beta", 
-    "htmlparser": "1.7.6", 
-    "clark": "0.0.6", 
-    "redis": "0.8.4", 
-    "validator" : "0.4.20"
+    "hubot": "^2.11.0",
+    "hubot-diagnostics": "0.0.1",
+    "hubot-google-images": "^0.1.2",
+    "hubot-google-translate": "^0.1.0",
+    "hubot-help": "^0.1.1",
+    "hubot-heroku-keepalive": "0.0.4",
+    "hubot-maps": "0.0.1",
+    "hubot-pugme": "^0.1.0",
+    "hubot-redis-brain": "0.0.2",
+    "hubot-rules": "^0.1.0",
+    "hubot-scripts": "^2.5.16",
+    "hubot-shipit": "^0.1.1",
+    "hubot-slack": "^3.2.1",
+    "hubot-youtube": "^0.1.2"
   },
-
   "engines": {
-    "node": ">= 0.8.x",
-    "npm":  ">= 1.1.x"
+    "node": "0.10.x"
   }
 }
